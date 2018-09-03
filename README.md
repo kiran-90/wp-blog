@@ -1,2 +1,2 @@
 # wp-blog
-HOW I CREATED MY WORDPRESS BLOG FROM SCRATCH
+How I created my WorPress Blog from scratch
