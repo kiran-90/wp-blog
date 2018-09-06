@@ -12,33 +12,33 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package Humescores
+ * @package Kays
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses humescores_header_style()
+ * @uses kays_header_style()
  */
-function humescores_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'humescores_custom_header_args', array(
+function kays_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'kays_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'humescores_header_style',
+		'wp-head-callback'       => 'kays_header_style',
 	) ) );
 }
-add_action( 'after_setup_theme', 'humescores_custom_header_setup' );
+add_action( 'after_setup_theme', 'kays_custom_header_setup' );
 
-if ( ! function_exists( 'humescores_header_style' ) ) :
+if ( ! function_exists( 'kays_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog.
  *
- * @see humescores_custom_header_setup().
+ * @see kays_custom_header_setup().
  */
-function humescores_header_style() {
+function kays_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	/*
