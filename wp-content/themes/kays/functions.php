@@ -102,6 +102,9 @@ add_action( 'widgets_init', 'kays_widgets_init' );
  * Enqueue scripts and styles.
  */
 function kays_scripts() {
+    //Enqueue Google Fonts: Indie Flower and Patrick Hand
+        wp_enqueue_style( 'kays-fonts', 'https://fonts.googleapis.com/css?family=Dekko|Ruluko' );
+        
 	wp_enqueue_style( 'kays-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'kays-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -112,7 +115,7 @@ function kays_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'kays_scripts' );
+add_action( 'wp_enqueue_scripts', 'kays_scripts', 'kays-fonts' );
 
 /**
  * Implement the Custom Header feature.
