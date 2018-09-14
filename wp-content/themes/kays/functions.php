@@ -69,6 +69,44 @@ endif;
 add_action( 'after_setup_theme', 'kays_setup' );
 
 /**
+ * Register custom fonts.
+ */
+function kays_fonts_url() {
+	$fonts_url = '';
+
+	/**
+	 * Translators: If there are characters in your language that are not
+	 * supported by Ruluko and Dekko, translate this to 'off'. Do not translate
+	 * into your own language.
+	 */
+	$ruluko = _x( 'on', 'Ruluko font: on or off', 'kays' );
+	$dekko = _x( 'on', 'Dekko font: on or off', 'kays' );
+
+	$font_families = array();
+	
+	if ( 'off' !== $ruluko ) {
+		$font_families[] = 'Ruluko';
+	}
+	
+	if ( 'off' !== $dekko ) {
+		$font_families[] = 'Dekko';
+	}
+	
+	
+	if ( in_array( 'on', array($ruluko, $dekko) ) ) {
+
+		$query_args = array(
+			'family' => urlencode( implode( '|', $font_families ) ),
+			'subset' => urlencode( 'latin,latin-ext' ),
+		);
+
+		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+	}
+
+	return esc_url_raw( $fonts_url );
+}
+
+/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
@@ -102,8 +140,8 @@ add_action( 'widgets_init', 'kays_widgets_init' );
  * Enqueue scripts and styles.
  */
 function kays_scripts() {
-    //Enqueue Google Fonts: Indie Flower and Patrick Hand
-        wp_enqueue_style( 'kays-fonts', 'https://fonts.googleapis.com/css?family=Dekko|Ruluko' );
+    //Enqueue Google Fonts: Ruluko and Dekko
+        wp_enqueue_style( 'kays-fonts', kays_fonts_url() );
         
 	wp_enqueue_style( 'kays-style', get_stylesheet_uri() );
 
