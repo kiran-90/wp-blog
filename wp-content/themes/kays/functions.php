@@ -64,6 +64,13 @@ function kays_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+        
+        //Add theme support for Custom Logo
+        add_theme_support( 'custom-logo', array(
+            'width' => 90,
+            'height' => 90,
+            'flex-width' => true,
+        ) );
 }
 endif;
 add_action( 'after_setup_theme', 'kays_setup' );
