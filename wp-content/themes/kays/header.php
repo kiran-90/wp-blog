@@ -22,7 +22,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'kays' ); ?></a>
-	<?php if ( get_header_image() ) : ?>
+	<?php if ( get_header_image() && is_front_page() ) : ?>
 	<figure class="header-image">
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
                     <img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
