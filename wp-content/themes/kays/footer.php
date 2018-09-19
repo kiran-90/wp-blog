@@ -14,10 +14,13 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
+            <div class="social-menu">
+                <?php wp_nav_menu( array( 'theme_location' => 'social' ) ); ?>
+            </div>
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'kays' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'kays' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'kays' ), 'kays', '<a href="https://mor10.com/courses" rel="designer">Kirandeep Chahal</a>' ); ?>
+			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'kays' ), 'kays', '<a href="https://github.com/kiran-90/wp-blog" rel="designer">Kirandeep Chahal</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
