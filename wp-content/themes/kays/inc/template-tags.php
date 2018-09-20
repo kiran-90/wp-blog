@@ -126,3 +126,18 @@ function kays_category_transient_flusher() {
 }
 add_action( 'edit_category', 'kays_category_transient_flusher' );
 add_action( 'save_post',     'kays_category_transient_flusher' );
+
+/**
+ * Post navigation (previous / next post)for single posts.
+ */
+
+function kays_post_navigation() {
+    the_post_navigation( array(
+	'next_text' => '<span class="meta-nav-next" aria-hidden="true">' . __( 'Next Post ', 'kays' ) . '</span> ' .
+            '<span class="screen-reader-text">' . __( 'Next post:', 'kays' ) . '</span> ' .
+            '<span class="post-title">%title</span>',
+	'prev_text' => '<span class="meta-nav-prev" aria-hidden="true">' . __( ' Previous Post', 'kays' ) . '</span> ' .
+            '<span class="screen-reader-text">' . __( 'Previous post:', 'kays' ) . '</span> ' .
+            '<span class="post-title">%title</span>',
+    ) );
+}
