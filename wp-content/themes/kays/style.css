@@ -1238,7 +1238,7 @@ object {
 ## Galleries
 --------------------------------------------------------------*/
 .gallery {
-	margin-bottom: 1.5em;
+	margin: 1.5em 0;
 }
 
 .gallery-item {
@@ -1246,6 +1246,30 @@ object {
 	text-align: center;
 	vertical-align: top;
 	width: 100%;
+	padding: 1em;
+}
+
+.gallery-item img {
+	display: block;
+}
+
+.gallery-item a {
+	display: inline-block;
+	border-bottom: none;
+}
+
+.gallery-item a:hover, .gallery-item a:focus {
+	border-bottom: none;
+	box-shadow: none;
+}
+
+.gallery-item a:hover img, .gallery-item a:focus img {
+	border-color: #b51c35;
+}
+
+.gallery-item a img {
+	margin: 0 auto;
+	border: 1px solid #fff;
 }
 
 .gallery-columns-2 .gallery-item {
@@ -1256,32 +1280,77 @@ object {
 	max-width: 33.33%;
 }
 
+@media screen and (max-width: 600px) {
+	.gallery-columns-3 .gallery-item {
+		max-width: 50%;
+	}
+}
+
 .gallery-columns-4 .gallery-item {
 	max-width: 25%;
+}
+
+@media screen and (max-width: 600px) {
+	.gallery-columns-4 .gallery-item {
+		max-width: 50%;
+	}
 }
 
 .gallery-columns-5 .gallery-item {
 	max-width: 20%;
 }
 
+@media screen and (max-width: 600px) {
+	.gallery-columns-5 .gallery-item {
+		max-width: 50%;
+	}
+}
+
 .gallery-columns-6 .gallery-item {
 	max-width: 16.66%;
+}
+
+@media screen and (max-width: 600px) {
+	.gallery-columns-6 .gallery-item {
+		max-width: 50%;
+	}
 }
 
 .gallery-columns-7 .gallery-item {
 	max-width: 14.28%;
 }
 
+@media screen and (max-width: 600px) {
+	.gallery-columns-7 .gallery-item {
+		max-width: 50%;
+	}
+}
+
 .gallery-columns-8 .gallery-item {
 	max-width: 12.5%;
+}
+
+@media screen and (max-width: 600px) {
+	.gallery-columns-8 .gallery-item {
+		max-width: 50%;
+	}
 }
 
 .gallery-columns-9 .gallery-item {
 	max-width: 11.11%;
 }
 
+@media screen and (max-width: 600px) {
+	.gallery-columns-9 .gallery-item {
+		max-width: 50%;
+	}
+}
+
 .gallery-caption {
 	display: block;
+	margin: 0;
+	font-family: "Ruluko", sans-serif;
+	border: none;
 }
 
 /*# sourceMappingURL=../kays/sass/maps/style.css.map */
