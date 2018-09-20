@@ -997,6 +997,10 @@ button.dropdown-toggle {
 	font-family: "Ruluko", sans-serif;
 }
 
+.tags-links a {
+	font-weight: 900;
+}
+
 .cat-links {
 	font-size: 90%;
 	font-weight: 700;
