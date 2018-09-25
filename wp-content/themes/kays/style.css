@@ -838,6 +838,33 @@ a:hover, a:active {
 	}
 }
 
+.site-content {
+	max-width: 1080px;
+	margin: 0 auto;
+}
+
+@media screen and (min-width: 900px) {
+	.has-sidebar .hentry {
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
+		-ms-flex-pack: justify;
+		    justify-content: space-between;
+	}
+	.has-sidebar .hentry .entry-header {
+		width: 100%;
+		-ms-flex: 1 0 100%;
+		    flex: 1 0 100%;
+	}
+	.has-sidebar .hentry .post-content {
+		width: 60%;
+	}
+	.has-sidebar .hentry .widget-area {
+		width: 30%;
+	}
+}
+
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
