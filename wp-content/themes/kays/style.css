@@ -865,6 +865,21 @@ a:hover, a:active {
 	}
 }
 
+@media screen and (min-width: 900px) {
+	.no-sidebar .post-content__wrap {
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-pack: justify;
+		    justify-content: space-between;
+	}
+	.no-sidebar .post-content__wrap .entry-meta {
+		width: 20%;
+	}
+	.no-sidebar .post-content__wrap .post-content__body {
+		width: 70%;
+	}
+}
+
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
@@ -1118,10 +1133,6 @@ button.dropdown-toggle {
 	font-family: "Ruluko", sans-serif;
 }
 
-.tags-links a {
-	font-weight: 900;
-}
-
 .cat-links {
 	font-size: 90%;
 	font-weight: 700;
@@ -1158,30 +1169,35 @@ button.dropdown-toggle {
 	border-bottom: 5px solid #b51c35;
 }
 
-.entry-meta {
+.entry-meta,
+.entry-footer {
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 	font-size: 90%;
 }
 
-.entry-meta a {
+.entry-meta a,
+.entry-footer a {
 	font-weight: 700;
 	text-decoration: none;
 	color: black;
 }
 
-.entry-meta a:focus, .entry-meta a:hover {
-	border-bottom: 3px solid #b51c35;
+.entry-meta a:focus, .entry-meta a:hover,
+.entry-footer a:focus,
+.entry-footer a:hover {
 	color: black;
+	border-bottom: 3px solid #b51c35;
+}
+
+.byline::after {
+	content: "|";
+	margin: 0 .5em;
 }
 
 .comments-link::before,
 .edit-link::before {
 	content: "|";
-	margin: 0 0.5em;
-}
-
-.byline::after {
-	content: "|";
-	margin: 0 0.5em;
+	margin: 0 .5em;
 }
 
 .byline,
@@ -1194,6 +1210,50 @@ button.dropdown-toggle {
 	display: inline;
 }
 
+.extra {
+	display: none;
+}
+
+/* Custom Post Meta rules for single post / no sidebar. */
+.no-sidebar .entry-meta {
+	margin-top: 1.5em;
+}
+
+@media screen and (min-width: 900px) {
+	.no-sidebar .post-content__wrap .entry-meta {
+		margin-top: 2.25em;
+		font-size: 85%;
+	}
+	.no-sidebar .post-content__wrap .entry-meta a {
+		font-size: 110%;
+		display: block;
+		border-bottom: 3px solid white;
+	}
+	.no-sidebar .post-content__wrap .entry-meta a:hover, .no-sidebar .post-content__wrap .entry-meta a:focus {
+		color: #b51c35;
+	}
+	.no-sidebar .post-content__wrap .byline,
+	.no-sidebar .post-content__wrap .posted-on,
+	.no-sidebar .post-content__wrap .comments-link,
+	.no-sidebar .post-content__wrap .edit-link {
+		display: block;
+		margin-bottom: 1em;
+	}
+	.no-sidebar .post-content__wrap .byline:before, .no-sidebar .post-content__wrap .byline:after,
+	.no-sidebar .post-content__wrap .posted-on:before,
+	.no-sidebar .post-content__wrap .posted-on:after,
+	.no-sidebar .post-content__wrap .comments-link:before,
+	.no-sidebar .post-content__wrap .comments-link:after,
+	.no-sidebar .post-content__wrap .edit-link:before,
+	.no-sidebar .post-content__wrap .edit-link:after {
+		margin: 0;
+		content: "";
+	}
+	.no-sidebar .post-content__wrap .extra {
+		display: inline;
+	}
+}
+
 .page-content,
 .entry-content,
 .entry-summary {
@@ -1203,6 +1263,11 @@ button.dropdown-toggle {
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.entry-footer {
+	margin: 1.5em 0;
+	font-family: "Ruluko", sans-serif;
 }
 
 /*--------------------------------------------------------------

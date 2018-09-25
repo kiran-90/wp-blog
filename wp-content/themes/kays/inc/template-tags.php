@@ -25,7 +25,7 @@ function kays_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		esc_html_x( 'on %s', 'post date', 'kays' ),
+		esc_html_x( 'Published %s', 'post date', 'kays' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
@@ -35,23 +35,24 @@ function kays_posted_on() {
 	);
 
 	echo '<span class="byline"> ' . $byline . '</span> <span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
-
-        if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-            echo ' and has <span class="comments-link">';
-            /* translators: %s: post title */
-            comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'kays' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
-            echo '</span>';
+	
+	if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+		echo ' <span class="comments-link"><span class="extra">Discussion </span>';
+		/* translators: %s: post title */
+		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'kays' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
+		echo '</span>';
 	}
-        
-        edit_post_link(
-            sprintf(
-                /* translators: %s: Name of current post */
-                esc_html__( 'Edit %s', 'kays' ),
-                the_title( '<span class="screen-reader-text">"', '"</span>', false )
-            ),
-		' <span class="edit-link">',
+	
+	edit_post_link(
+		sprintf(
+			/* translators: %s: Name of current post */
+			esc_html__( 'Edit %s', 'kays' ),
+			the_title( '<span class="screen-reader-text">"', '"</span>', false )
+		),
+		' <span class="edit-link"><span class="extra">Admin </span>',
 		'</span>'
 	);
+
 }
 endif;
 
@@ -69,6 +70,7 @@ function kays_entry_footer() {
 			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'kays' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
+
 }
 endif;
 
@@ -77,11 +79,11 @@ endif;
  */
 
 function kays_the_category_list() {
-    /* translators: used between list items, there is a space after the comma */
-    $categories_list = get_the_category_list( esc_html__( ', ', 'kays' ) );
-    if ( $categories_list && kays_categorized_blog() ) {
-	printf( '<span class="cat-links">' . esc_html__( 'Categories: %1$s', 'kays' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-    }
+	/* translators: used between list items, there is a space after the comma */
+	$categories_list = get_the_category_list( esc_html__( ', ', 'kays' ) );
+	if ( $categories_list && kays_categorized_blog() ) {
+		printf( '<span class="cat-links">' . esc_html__( '%1$s', 'kays' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+	}
 }
 
 /**
@@ -127,17 +129,17 @@ function kays_category_transient_flusher() {
 add_action( 'edit_category', 'kays_category_transient_flusher' );
 add_action( 'save_post',     'kays_category_transient_flusher' );
 
-/**
- * Post navigation (previous / next post)for single posts.
- */
 
+/**
+ * Post navigation (previous / next post) for single posts.
+ */
 function kays_post_navigation() {
-    the_post_navigation( array(
-	'next_text' => '<span class="meta-nav-next" aria-hidden="true">' . __( 'Next Post ', 'kays' ) . '</span> ' .
-            '<span class="screen-reader-text">' . __( 'Next post:', 'kays' ) . '</span> ' .
-            '<span class="post-title">%title</span>',
-	'prev_text' => '<span class="meta-nav-prev" aria-hidden="true">' . __( ' Previous Post', 'kays' ) . '</span> ' .
-            '<span class="screen-reader-text">' . __( 'Previous post:', 'kays' ) . '</span> ' .
-            '<span class="post-title">%title</span>',
-    ) );
+	the_post_navigation( array(
+		'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'kays' ) . '</span> ' .
+			'<span class="screen-reader-text">' . __( 'Next post:', 'kays' ) . '</span> ' .
+			'<span class="post-title">%title</span>',
+		'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'kays' ) . '</span> ' .
+			'<span class="screen-reader-text">' . __( 'Previous post:', 'kays' ) . '</span> ' .
+			'<span class="post-title">%title</span>',
+	) );
 }
