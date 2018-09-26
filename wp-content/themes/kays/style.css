@@ -702,9 +702,7 @@ a:hover, a:active {
 }
 
 .post-navigation .meta-nav-prev:before {
-	content: "<";
-	position: relative;
-	left: 0;
+	content: "< ";
 	font-size: 1.2em;
 }
 
@@ -713,9 +711,7 @@ a:hover, a:active {
 }
 
 .post-navigation .meta-nav-next:after {
-	content: ">";
-	position: relative;
-	right: 0;
+	content: " >";
 	font-size: 1.2em;
 }
 

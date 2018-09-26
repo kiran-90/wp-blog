@@ -135,10 +135,10 @@ add_action( 'save_post',     'kays_category_transient_flusher' );
  */
 function kays_post_navigation() {
 	the_post_navigation( array(
-		'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'kays' ) . '</span> ' .
+		'next_text' => '<span class="meta-nav-next" aria-hidden="true">' . __( 'Next', 'kays' ) . '</span> ' .
 			'<span class="screen-reader-text">' . __( 'Next post:', 'kays' ) . '</span> ' .
 			'<span class="post-title">%title</span>',
-		'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'kays' ) . '</span> ' .
+		'prev_text' => '<span class="meta-nav-prev" aria-hidden="true">' . __( 'Previous', 'kays' ) . '</span> ' .
 			'<span class="screen-reader-text">' . __( 'Previous post:', 'kays' ) . '</span> ' .
 			'<span class="post-title">%title</span>',
 	) );

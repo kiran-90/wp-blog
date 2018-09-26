@@ -70,9 +70,7 @@
 	.meta-nav-prev {
 		display: block;
 		&:before {
-			content: "<";
-			position: relative;
-    		left: 0;
+			content: "< ";
     		font-size: 1.2em;
 		}
 	}
@@ -80,9 +78,7 @@
 	.meta-nav-next {
 		display: block;
 		&:after {
-			content: ">";
-			position: relative;
-    		right: 0;
+			content: " >";
     		font-size: 1.2em;
 		}
 	}
