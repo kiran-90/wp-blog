@@ -1358,7 +1358,7 @@ button.dropdown-toggle {
 	}
 }
 
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 600px) {
 	.no-sidebar .children {
 		margin-left: 3em;
 	}
@@ -1432,7 +1432,7 @@ button.dropdown-toggle {
 
 .comment-author-kays .avatar {
 	box-sizing: content-box;
-	border: 5px solid #b51c35;
+	border: 3px solid #b51c35;
 	margin-top: -5px;
 	margin-left: -5px;
 }

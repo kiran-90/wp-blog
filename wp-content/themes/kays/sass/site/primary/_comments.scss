@@ -95,7 +95,7 @@
 	}
 
 
-	@media screen and (min-width: $size__max-width) {
+	@media screen and (min-width: $query__small) {
 
 		.children {
 			margin-left: 3em;
@@ -183,7 +183,7 @@
 
 .comment-author-kays .avatar {
 	box-sizing: content-box;
-	border: 5px solid $color__interactive;
+	border: 3px solid $color__interactive;
 	margin-top: -5px;
 	margin-left: -5px;
 }
