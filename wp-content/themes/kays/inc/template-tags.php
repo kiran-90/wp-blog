@@ -143,3 +143,19 @@ function kays_post_navigation() {
 			'<span class="post-title">%title</span>',
 	) );
 }
+
+/**
+ * Customise ellipsis at end of excerpts.
+ */
+function kays_excerpt_more( $more ) {
+    return "…";
+}
+add_filter( 'excerpt_more', 'kays_excerpt_more');
+
+/**
+ * Filter excerpt length to 100 words.
+ */
+function kays_excerpt_length( $length ) {
+    return 100;
+}
+add_filter( 'excerpt_length', 'kays_excerpt_length');
