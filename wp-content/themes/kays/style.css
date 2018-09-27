@@ -1593,6 +1593,26 @@ button.dropdown-toggle {
 	text-decoration: underline;
 }
 
+.continue-reading {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	font-family: "Dekko", cursive;
+}
+
+.continue-reading a {
+	display: block;
+	padding: .5em 1em;
+	font-size: 90%;
+	text-decoration: none;
+	background: #d9d9d9;
+}
+
+.continue-reading a:focus, .continue-reading a:hover {
+	color: white;
+	background: #b51c35;
+}
+
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
