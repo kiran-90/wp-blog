@@ -909,6 +909,36 @@ a:hover, a:active {
 	}
 }
 
+.index-image img {
+	display: block;
+	margin: 0 auto;
+}
+
+.index-image a:focus > img,
+.index-image a:hover > img {
+	opacity: .8;
+}
+
+.continue-reading {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	font-family: "Dekko", cursive;
+}
+
+.continue-reading a {
+	display: block;
+	padding: .5em 1em;
+	font-size: 90%;
+	text-decoration: none;
+	background: #d9d9d9;
+}
+
+.continue-reading a:focus, .continue-reading a:hover {
+	color: white;
+	background: #b51c35;
+}
+
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
@@ -1591,26 +1621,6 @@ button.dropdown-toggle {
 
 .social-menu ul a:hover, .social-menu ul a:focus {
 	text-decoration: underline;
-}
-
-.continue-reading {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	font-family: "Dekko", cursive;
-}
-
-.continue-reading a {
-	display: block;
-	padding: .5em 1em;
-	font-size: 90%;
-	text-decoration: none;
-	background: #d9d9d9;
-}
-
-.continue-reading a:focus, .continue-reading a:hover {
-	color: white;
-	background: #b51c35;
 }
 
 /*--------------------------------------------------------------

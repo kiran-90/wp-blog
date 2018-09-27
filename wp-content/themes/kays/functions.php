@@ -42,6 +42,7 @@ function kays_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
         add_image_size( 'kays-full-bleed', 2000, 1200, true);
+        add_image_size('kays-index-img', 800, 450, true);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
