@@ -14,11 +14,12 @@
 
 get_header(); ?>
 
+<?php if ( have_posts() ) : ?>
+
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
 		<?php
-		if ( have_posts() ) :
 
 			if ( is_home() && ! is_front_page() ) : ?>
 				<header>
@@ -40,17 +41,13 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_pagination( array (
-                            'prev_text' => __( 'Newer', 'kays'),
-                            'next_text' => __('Older', 'kays'),
-                            'before_page_number' => '<span class="screen-reader-text">' . __('Page ', 'kays') . '</span>',
-                        ) );
+			the_posts_pagination( array(
+				'prev_text' => __( 'Newer', 'kays' ),
+				'next_text' => __( 'Older', 'kays' ),
+				'before_page_number' => '<span class="screen-reader-text">' . __( 'Page ', 'kays' ) . '</span>',
+			));
 
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif; ?>
+		?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
@@ -58,3 +55,11 @@ get_header(); ?>
 <?php
 get_sidebar();
 get_footer();
+
+
+else :
+
+	get_template_part( 'template-parts/content', 'none' );
+	return;
+
+endif;
