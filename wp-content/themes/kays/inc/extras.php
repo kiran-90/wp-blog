@@ -31,6 +31,11 @@ function kays_body_classes( $classes ) {
         } else {
             $classes[] = 'no-sidebar';
         }
+        
+        // Add a class telling us if the page sidebar is in use.
+	if ( is_active_sidebar( 'sidebar-2' ) ) {
+		$classes[] = 'has-page-sidebar';
+	}
 
 	return $classes;
 }

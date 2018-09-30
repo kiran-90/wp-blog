@@ -872,8 +872,10 @@ a:hover, a:active {
 	margin: 0 auto;
 }
 
+/* Single posts */
 @media screen and (min-width: 900px) {
-	.single.has-sidebar .hentry {
+	.single.has-sidebar .hentry,
+	.page .hentry {
 		display: -ms-flexbox;
 		display: flex;
 		-ms-flex-wrap: wrap;
@@ -881,16 +883,27 @@ a:hover, a:active {
 		-ms-flex-pack: justify;
 		    justify-content: space-between;
 	}
-	.single.has-sidebar .hentry .entry-header {
+	.single.has-sidebar .hentry .entry-header,
+	.page .hentry .entry-header {
 		width: 100%;
 		-ms-flex: 1 0 100%;
 		    flex: 1 0 100%;
 	}
-	.single.has-sidebar .hentry .post-content {
+	.single.has-sidebar .hentry .post-content,
+	.page .hentry .post-content {
 		width: 60%;
 	}
-	.single.has-sidebar .hentry .widget-area {
+	.single.has-sidebar .hentry .widget-area,
+	.page .hentry .widget-area {
 		width: 30%;
+	}
+	.page.has-page-sidebar .hentry {
+		-ms-flex-direction: row-reverse;
+		    flex-direction: row-reverse;
+	}
+	.page:not(.has-page-sidebar) .hentry {
+		-ms-flex-pack: end;
+		    justify-content: flex-end;
 	}
 }
 
