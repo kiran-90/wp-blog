@@ -42,8 +42,8 @@ get_header(); ?>
 			endwhile;
 
 			the_posts_pagination( array(
-				'prev_text' => __( 'Newer', 'kays' ),
-				'next_text' => __( 'Older', 'kays' ),
+				'prev_text' => kays_get_svg( array( 'icon' => 'arrow-left' ) ) . __( '  Newer', 'kays' ),
+				'next_text' => __( 'Older  ', 'kays' ) . kays_get_svg( array( 'icon' => 'arrow-right' ) ),
 				'before_page_number' => '<span class="screen-reader-text">' . __( 'Page ', 'kays' ) . '</span>',
 			));
 
