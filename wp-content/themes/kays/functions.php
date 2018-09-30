@@ -150,6 +150,84 @@ function kays_content_width() {
 add_action( 'after_setup_theme', 'kays_content_width', 0 );
 
 /**
+ * Add custom image sizes attribute to enhance responsive image functionality
+ * for content images.
+ *
+ * @origin Twenty Seventeen 1.0
+ *
+ * @param string $sizes A source size value for use in a 'sizes' attribute.
+ * @param array  $size  Image size. Accepts an array of width and height
+ *                      values in pixels (in that order).
+ * @return string A source size value for use in a content image 'sizes' attribute.
+ */
+function kays_content_image_sizes_attr( $sizes, $size ) {
+	$width = $size[0];
+        // if the minimum width of the screen is wider than 900 pixels then the image will be 700 pixels wide 
+        // at the widest. If the screen is narrower than that, then the image might be up to 900 pixels wide.
+	if ( 900 <= $width ) {
+		$sizes = '(min-width: 900px) 700px, 900px';
+	}
+        // over 900 pixels the width is a max of 600 pixels. Otherwise it's still 900 pixels
+	if ( is_active_sidebar( 'sidebar-1' ) || is_active_sidebar( 'sidebar-2' ) ) {
+		$sizes = '(min-width: 900px) 600px, 900px';
+	}
+
+	return $sizes;
+}
+add_filter( 'wp_calculate_image_sizes', 'kays_content_image_sizes_attr', 10, 2 );
+
+/**
+ * Filter the `sizes` value in the header image markup.
+ *
+ * @origin Twenty Seventeen 1.0
+ *
+ * @param string $html   The HTML image tag markup being filtered.
+ * @param object $header The custom header object returned by 'get_custom_header()'.
+ * @param array  $attr   Array of the attributes for the image tag.
+ * @return string The filtered header image HTML.
+ */
+function kays_header_image_tag( $html, $header, $attr ) {
+	if ( isset( $attr['sizes'] ) ) {
+		$html = str_replace( $attr['sizes'], '100vw', $html );
+	}
+	return $html;
+}
+add_filter( 'get_header_image_tag', 'kays_header_image_tag', 10, 3 );
+
+/**
+ * Add custom image sizes attribute to enhance responsive image functionality
+ * for post thumbnails.
+ *
+ * @origin Twenty Seventeen 1.0
+ *
+ * @param array $attr       Attributes for the image markup.
+ * @param int   $attachment Image attachment ID.
+ * @param array $size       Registered image size or flat array of height and width dimensions.
+ * @return string A source size value for use in a post thumbnail 'sizes' attribute.
+ */
+function kays_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
+        // if not on a singular page, meaning we're on an archive or the index page or anywhere else
+        //  and we currently have an active sidebar and the screen is narrower than 900 pixels, 
+        //  then the image will be about 90% of the viewport width. If on wider screens, 
+        //  so above 900 pixels, then the width of the image will always be 800 pixels. 
+        //  If don't have an active sidebar, then the values change again. 
+        //  So under 1000 pixel wide screen the width is about 90vw again, 
+        //  and anything over that it will always be no wider than 1000 pixels
+	if ( !is_singular() ) {
+		if ( is_active_sidebar( 'sidebar-1' ) ) {
+			$attr['sizes'] = '(max-width: 900px) 90vw, 800px';
+		} else {
+			$attr['sizes'] = '(max-width: 1000px) 90vw, 1000px';
+		}
+	} else {
+		$attr['sizes'] = '100vw';
+	}
+
+	return $attr;
+}
+add_filter( 'wp_get_attachment_image_attributes', 'kays_post_thumbnail_sizes_attr', 10, 3 );
+
+/**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
