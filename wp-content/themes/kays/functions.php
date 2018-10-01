@@ -74,6 +74,9 @@ function kays_setup() {
             'height' => 90,
             'flex-width' => true,
         ) );
+        
+        /* Editor styles */
+        add_editor_style( array( 'inc/editor-styles.css', kays_fonts_url() ));
 }
 endif;
 add_action( 'after_setup_theme', 'kays_setup' );
