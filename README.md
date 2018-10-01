@@ -1,2 +1,2 @@
-# wp-blog
-A WordPress Blog from scratch with Underscores for WordPress theme development.
+# portfolio-blog
+A WordPress porfolio blog based on a modified version of Underscores theme development.
