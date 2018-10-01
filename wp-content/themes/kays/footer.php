@@ -35,7 +35,7 @@
 
 			<div class="site-info">
 				<div><a href="<?php echo esc_url( __( 'https://wordpress.org/', 'kays' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'kays' ), 'WordPress' ); ?></a></div>
-				<div><?php printf( esc_html__( 'Theme: %1$s by %2$s', 'kays' ), 'kays', '<a href="https://github.com/kiran-90/wp-blog" rel="designer">Kirandeep Chahals</a>' ); ?></div>
+				<div><?php printf( esc_html__( 'Theme: %1$s by %2$s', 'kays' ), 'kays', '<a href="https://github.com/kiran-90/wp-blog" rel="designer">Kirandeep Chahal</a>' ); ?></div>
 			</div><!-- .site-info -->
 		</div><!-- .site-footer__wrap -->
 	</footer><!-- #colophon -->
